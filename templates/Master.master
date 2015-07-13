@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Templates_Master" %>
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head runat="server">
+    <meta charset="utf-8">
+    <title>Project Euler - jaybong</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="/assets/base/css/base.css">
+    <link rel="stylesheet" href="/assets/base/css/mobile.css">
+    <link rel="stylesheet" href="/assets/base/css/tablet.css">
+    <link rel="stylesheet" href="/assets/base/css/desktop.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+
+    <script src="/assets/base/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <section class="masthead">
+                <nav>
+                    <ul class="menu-primary site-menu">
+                        <asp:Repeater ID="rptQuestions" runat="server">
+                            <ItemTemplate>
+                                <li><a href="<%#Eval("QuestionUrl") %>"><%# Eval("QuestionName") %></a></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </nav>
+                <header>
+                    <h1>Project Euler</h1>
+                    <p>Muddling through math - <em><a href="http://projecteuler.com">Project Euler</a></em></p>
+
+
+
+                    <hr>
+                </header>
+            </section>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+
+            <footer>
+                <hr>
+                
+            </footer>
+        </div>
+        <script src="/assets/base/js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="/assets/js/prism.js"></script>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+

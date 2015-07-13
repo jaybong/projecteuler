@@ -1,0 +1,12 @@
+﻿nav {
+    text-align: center;
+}
+
+ul[class*="menu-"] li > a {
+    background: #eee;
+    margin: 0 5px;
+}
+
+ul[class*="menu-"] li:hover > a {
+    background: #ccc;
+}
