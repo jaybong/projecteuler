@@ -37,7 +37,7 @@
                     </ul>
                 </nav>
                 <header>
-                    <h1>Project Euler</h1>
+                    <h1><a href="/">Project Euler</a></h1>
                     <p>Muddling through math - <em><a href="http://projecteuler.com">Project Euler</a></em></p>
 
 

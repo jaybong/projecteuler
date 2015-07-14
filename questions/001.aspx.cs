@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using Humanizer;
 
-public partial class _1 : System.Web.UI.Page
+public partial class _001 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
