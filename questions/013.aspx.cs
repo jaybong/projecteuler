@@ -27,8 +27,6 @@ public partial class _013 : System.Web.UI.Page
             stringlist.Add(fiftystring);
         }
 
-        List<BigInteger> intlist = new List<BigInteger>();
-
         BigInteger bignumber = 0;
         foreach (string fiftyint in stringlist)
         {
