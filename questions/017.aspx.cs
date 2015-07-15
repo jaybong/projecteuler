@@ -2,72 +2,57 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Diagnostics;
+using System.Threading;
+using Humanizer;
 
-/// <summary>
-/// Summary description for MathFunctions
-/// </summary>
-public class MathFunctions
+public partial class _017 : System.Web.UI.Page
 {
 
-
-
-
-	public MathFunctions()
-	{
-
-	}
-
-    bool DebugMode = true;
-
-    public bool IsPrime(int val)
+    protected void Page_Load(object sender, EventArgs e)
     {
+        Stopwatch stopwatch = new Stopwatch();
 
-        if (val == 1) return false;
-        if (val == 2) return true;
+        stopwatch.Start();
 
-        if (val % 2 == 0) return false;
+        string allwords = "";
 
-        for (int i = 3; i < val; i += 2)
+        for (int i = 1; i <= 1000; i++)
         {
-            if (val % i == 0) return false;
+            string wordnumber = NumberToWords(i);
+            allwords = string.Join("", allwords, wordnumber);
         }
 
-        return true;
-    }
+        int answer = allwords.Length;
 
+        stopwatch.Stop();
+
+        litAnswer.Text = answer.ToString();
+        litStopWatch.Text = TimeSpan.FromSeconds(stopwatch.Elapsed.Seconds).Humanize();
+    }
 
     public static string NumberToWords(int number)
     {
-        if (number == 0)
-            return "zero";
-
-        if (number < 0)
-            return "minus " + NumberToWords(Math.Abs(number));
-
         string words = "";
-
-        if ((number / 1000000) > 0)
-        {
-            words += NumberToWords(number / 1000000) + " million ";
-            number %= 1000000;
-        }
 
         if ((number / 1000) > 0)
         {
-            words += NumberToWords(number / 1000) + " thousand ";
+            words += NumberToWords(number / 1000) + "thousand";
             number %= 1000;
         }
 
         if ((number / 100) > 0)
         {
-            words += NumberToWords(number / 100) + " hundred ";
+            words += NumberToWords(number / 100) + "hundred";
             number %= 100;
         }
 
         if (number > 0)
         {
             if (words != "")
-                words += "and ";
+                words += "and";
 
             var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
             var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
@@ -78,12 +63,11 @@ public class MathFunctions
             {
                 words += tensMap[number / 10];
                 if ((number % 10) > 0)
-                    words += "-" + unitsMap[number % 10];
+                    words += "" + unitsMap[number % 10];
             }
         }
 
         return words;
     }
-
 
 }
