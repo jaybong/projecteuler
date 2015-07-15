@@ -17,16 +17,13 @@ public partial class _006 : System.Web.UI.Page
         stopwatch.Start();
 
         int sumsquare = 0;
-        for (int i = 0; i <= 100; i++)
-        {
-            sumsquare += i * i;
-        }
-
         int squaresum = 0;
         for (int i = 0; i <= 100; i++)
         {
+            sumsquare += i * i;
             squaresum += i;
         }
+
         squaresum = squaresum * squaresum;
 
         int answer = squaresum - sumsquare;
